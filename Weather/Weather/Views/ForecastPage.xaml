@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Weather.Views.ForecastPage">
+
+    
+    <ContentPage.Content >
+
+
+        
+        <StackLayout>
+            
+            <Label x:Name="myLabel" Text="" HorizontalOptions="Center" FontSize="32"/>
+            <Button Text="Refresh" Clicked="Button_Clicked" HorizontalOptions="Center" WidthRequest="200" HeightRequest="50" BackgroundColor="#b5f27c"/>
+
+            <ListView x:Name="myList" IsGroupingEnabled="True"  HorizontalOptions="Center" >
+                
+                <ListView.GroupHeaderTemplate >
+                    
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="#e6f786" HeightRequest="80" Margin="10" >
+
+                                <Label FontSize="36"  Padding="10" HorizontalOptions="Center" Text="{Binding Key, StringFormat='{0:dddd,dd MMMM yyyy}'}"  />
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                    
+                </ListView.GroupHeaderTemplate>
+                
+                <ListView.ItemTemplate >
+                    
+                    <DataTemplate>
+                        
+                        <ViewCell>
+                            
+                            <StackLayout Margin="10">
+                                <Grid Background="#e6f786" HorizontalOptions="Center" WidthRequest="500">
+                                    <Label HorizontalOptions="CenterAndExpand" FontSize="28" Text="{Binding DateTime, StringFormat='{0:h:mm tt}'}" />
+                                </Grid>
+
+                                <Grid BackgroundColor="#b5f27c" HorizontalOptions="Center" WidthRequest="500" HeightRequest="50">
+                                    <Label HorizontalOptions="Center" Text="{Binding .}" FontSize="16" Padding="0, 10, 10, 0"/>
+
+                                </Grid>
+
+                            </StackLayout>
+                              
+                        </ViewCell>
+                        
+
+                    </DataTemplate>
+                    
+                </ListView.ItemTemplate>
+                
+            </ListView>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>
